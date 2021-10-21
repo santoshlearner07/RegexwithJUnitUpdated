@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
+
     public static void main(String[] args) {
 
         System.out.println("Entering Details");
@@ -49,12 +50,14 @@ public class UserRegistration {
         String passWord = sc.next();
         Matcher matcher5 = pattern3.matcher(passWord);
 
+        /*
+        Throw Exception added
+         */
+
         if (matcher.find() && matcher2.find() && matcher3.find() && matcher4.find() && matcher5.find())
 //        if (matcher5.find())
             System.out.println("Details Matched the Condition");
         else
-            System.out.println("Details not Matched to condition, Add again");
-
-
+            throw new ArithmeticException("Details not Matched to condition, Add again");
     }
 }

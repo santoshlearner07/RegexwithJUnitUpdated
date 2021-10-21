@@ -7,7 +7,7 @@ public class UserValidator {
     private static final String LAST_NAME_PATTERN = "[A-Z]{1}[a-z]{3,}";
     private static final String E_MAIL_PATTERN = "^([a-z]{3,20})?([@\\.\\-\\+])?([0-9]{3,6})?[@]?([a-z]{2,10})?[.][a-z]{2,5}?[.]?([a-z]{1,})?";
     private static final String MOBILE_NUMBER_PATTERN = "^[0\\+91][6789][0-9]{9,13}";
-    private static final String PASSWORD_PATTERN = "(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*()<>,.`])(?=.*[a-z]{5,})";
+    private static final String PASSWORD_PATTERN = "(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*()<>,.`])(?=.*[a-z]{5})";
 
     public boolean validateFirstName(String Fname) {
         Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
@@ -35,8 +35,23 @@ public class UserValidator {
         return pattern.matcher(UserPassword).matches();
     }
 
-//    public static void main(String[] args) {
-//        System.out.println("Welcome");
-//        System.out.println("Enter Details For Registration -> ");
-//    }
+    static void checkEligibility(String Fname, String Lname, String Email, String MobNumber, String UserPassword) {
+        if (Fname != FIRST_NAME_PATTERN) {
+            throw new ArithmeticException("Details not Matched to condition, Add again");
+        }
+        else {
+            System.out.println("Details Matched to Pattern");
+        }
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("Welcome");
+        System.out.println("Enter Details For Registration -> ");
+
+//        checkEligibility("Santosh" , "Nandiyawar" , "bcajbn", "6526+22" , "cbckk");
+        checkEligibility("Santosh" , "Nandiyawar" , "abc@123@abcd.com", "09604800000" , "7@Santos");
+
+    }
+
 }
